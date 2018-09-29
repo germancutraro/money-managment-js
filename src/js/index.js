@@ -1,3 +1,4 @@
-import { totalMoney } from './elements';
-
-console.log(totalMoney)
+import { 
+  totalMoney, entryQuantity, entryButton,
+  itemName, itemPrice, itemCategory, itemButton
+} from "./elements";
