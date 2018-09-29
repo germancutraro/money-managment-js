@@ -21,15 +21,17 @@
     <form id="add-expenses">
       <input type="text" placeholder="item" id="item-name">
       <select id="item-category">
-        <option value="">Option 1</option>
-        <option value="">Option 2</option>
-        <option value="">Option 3</option>
-        <option value="">Option 4</option>
-        <option value="">Option 5</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+        <option>Option 4</option>
+        <option>Option 5</option>
       </select>
       <input type="number" placeholder="price" min="1" id="item-price">
       <input type="submit" value="Add Expense" id="item-button">
     </form>
+
+    <div class="items-container" id="items-container" style="color: #fff; display: flex; flex-direction: column;"></div>
     
   </div>
   <script src="src/js/index.js"></script>
