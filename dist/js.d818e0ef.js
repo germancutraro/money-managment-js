@@ -104,9 +104,22 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"src/js/index.js":[function(require,module,exports) {
+})({"src/js/elements.js":[function(require,module,exports) {
+"use strict";
 
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.totalMoney = void 0;
+var totalMoney = document.getElementById('my-money');
+exports.totalMoney = totalMoney;
+},{}],"src/js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _elements = require("./elements");
+
+console.log(_elements.totalMoney);
+},{"./elements":"src/js/elements.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -276,3 +289,4 @@ function hmrAccept(bundle, id) {
   });
 }
 },{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/js/index.js"], null)
+//# sourceMappingURL=/js.d818e0ef.map
