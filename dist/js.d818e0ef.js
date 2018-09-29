@@ -110,15 +110,27 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.totalMoney = void 0;
+exports.itemButton = exports.itemCategory = exports.itemPrice = exports.itemName = exports.entryButton = exports.entryQuantity = exports.totalMoney = void 0;
+// Entry money elements
 var totalMoney = document.getElementById('my-money');
 exports.totalMoney = totalMoney;
+var entryQuantity = document.getElementById('income-quantity');
+exports.entryQuantity = entryQuantity;
+var entryButton = document.getElementById('income-button'); // Item form elements
+
+exports.entryButton = entryButton;
+var itemName = document.getElementById('item-name');
+exports.itemName = itemName;
+var itemPrice = document.getElementById('item-price');
+exports.itemPrice = itemPrice;
+var itemCategory = document.getElementById('item-category');
+exports.itemCategory = itemCategory;
+var itemButton = document.getElementById('item-button');
+exports.itemButton = itemButton;
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _elements = require("./elements");
-
-console.log(_elements.totalMoney);
 },{"./elements":"src/js/elements.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
