@@ -9,12 +9,25 @@
 <script src="/styles.c9b106b8.js"></script></head>
 <body>
   <div id="app">
-    <h1 id="my-money" class="success" contenteditable="true">50000</h1>
-    <form>
-      <input type="text" placeholder="item">
-      <input type="number" placeholder="price" min="1">
-      <input type="submit" value="Add">
+    <h1 id="my-money" class="success">50000</h1>
+    <form id="add-incomes">
+      <input type="number" id="income-quantity">
+      <input type="submit" value="Add Income" id="income-button">
     </form>
+
+    <form id="add-expenses">
+      <input type="text" placeholder="item" id="item-name">
+      <select id="item-category">
+        <option value="">Option 1</option>
+        <option value="">Option 2</option>
+        <option value="">Option 3</option>
+        <option value="">Option 4</option>
+        <option value="">Option 5</option>
+      </select>
+      <input type="number" placeholder="price" min="1" id="item-price">
+      <input type="submit" value="Add Expense" id="item-button">
+    </form>
+    
   </div>
   <script src="/js.d818e0ef.js"></script>
 </body>
