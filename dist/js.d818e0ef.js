@@ -135,10 +135,10 @@ exports.itemsContainer = itemsContainer;
 var _elements = require("./elements");
 
 // money entry
-_elements.incomeForm.addEventListener('submit', function (e) {
+_elements.incomeForm.addEventListener("submit", function (e) {
   e.preventDefault();
   _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
-  _elements.entryQuantity.value = '';
+  _elements.entryQuantity.value = "";
 });
 
 var items = [];
@@ -149,8 +149,8 @@ var structure = function structure(e) {
 };
 
 var render = function render() {
-  _elements.itemsContainer.innerHTML = '';
-  template = '';
+  _elements.itemsContainer.innerHTML = "";
+  template = "";
   items.forEach(function (e) {
     template += structure(e);
     _elements.itemsContainer.innerHTML = template;
@@ -158,12 +158,12 @@ var render = function render() {
 };
 
 var resetValues = function resetValues() {
-  _elements.itemName.value = '';
-  _elements.itemPrice.value = '';
-  _elements.itemCategory.value = 'Option 1';
+  _elements.itemName.value = "";
+  _elements.itemPrice.value = "";
+  _elements.itemCategory.value = "Option 1";
 };
 
-_elements.itemForm.addEventListener('submit', function (e) {
+_elements.itemForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (_elements.itemName.value.trim() && _elements.itemPrice.value.trim()) {
@@ -172,7 +172,7 @@ _elements.itemForm.addEventListener('submit', function (e) {
       price: _elements.itemPrice.value,
       category: _elements.itemCategory.value
     });
-    _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) - _elements.itemPrice.value;
+    _elements.totalMoney.textContent = _elements.totalMoney.textContent - _elements.itemPrice.value;
     render();
     resetValues();
   }
@@ -204,7 +204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52399" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52976" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

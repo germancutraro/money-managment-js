@@ -6,15 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Open+Sans">
   <link rel="stylesheet" href="src/styles/index.css">
 </head>
 <body>
   <div id="app">
     <header class="main-header">
       <h1 id="my-money" class="my-money success">5</h1>
-      <form id="add-incomes">
+      <form id="add-incomes" class="add-incomes">
+        
         <input type="number" id="income-quantity" class="income-quantity" placeholder="How much money?">
-        <input type="submit" value="Add Income" id='income-button'>
+        <button type="submit" class="income-button"> <i class="fas fa-plus-circle" id='income-button'></i></button>
       </form>
     </header>
 
@@ -31,8 +33,9 @@
       <input type="submit" value="Add Expense" id="item-button">
     </form>
 
-    <div class="items-container" id="items-container" style="color: #fff; display: flex; flex-direction: column;"></div>
-    
+    <div class="items-container" id="items-container">
+
+    </div>
   </div>
   <script src="src/js/index.js"></script>
 </body>

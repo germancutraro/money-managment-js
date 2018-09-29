@@ -34,10 +34,32 @@ html, body {
   height: 30px;
   background-color: inherit;
   text-align: center;
-  border-bottom: 1px solid #aaa;
+  border-bottom: 1px solid #eee;
   margin-bottom: 1rem;
+  outline: none;
+  color: #fff;
 }
 
 .income-quantity::placeholder {
   color: #fff;
 }
+
+.income-button {
+  border: none;
+  border-radius: 100%;
+  outline: none;
+  background-color: inherit;
+
+}
+
+.fa-plus-circle {
+  color: #fff;
+}
+
+.items-container {
+  background-color: red;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
