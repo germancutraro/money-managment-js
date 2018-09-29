@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="src/styles/index.css">
 </head>
 <body>
   <div id="app">
-    <h1 id="my-money" class="success">5</h1>
-    <form id="add-incomes">
-      <input type="number" id="income-quantity">
-      <input type="submit" value="Add Income" id='income-button'>
-    </form>
+    <header class="main-header">
+      <h1 id="my-money" class="my-money success">5</h1>
+      <form id="add-incomes">
+        <input type="number" id="income-quantity" class="income-quantity" placeholder="How much money?">
+        <input type="submit" value="Add Income" id='income-button'>
+      </form>
+    </header>
 
     <form id="add-expenses">
       <input type="text" placeholder="item" id="item-name">
