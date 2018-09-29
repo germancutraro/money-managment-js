@@ -110,7 +110,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.itemCategory = exports.itemPrice = exports.itemName = exports.itemForm = exports.entryQuantity = exports.totalMoney = exports.incomeForm = void 0;
+exports.itemsContainer = exports.itemCategory = exports.itemPrice = exports.itemName = exports.itemForm = exports.entryQuantity = exports.totalMoney = exports.incomeForm = void 0;
 // Entry money elements
 var incomeForm = document.getElementById('add-incomes');
 exports.incomeForm = incomeForm;
@@ -127,6 +127,8 @@ var itemPrice = document.getElementById('item-price');
 exports.itemPrice = itemPrice;
 var itemCategory = document.getElementById('item-category');
 exports.itemCategory = itemCategory;
+var itemsContainer = document.getElementById('items-container');
+exports.itemsContainer = itemsContainer;
 },{}],"src/js/index.js":[function(require,module,exports) {
 "use strict";
 
@@ -137,6 +139,43 @@ _elements.incomeForm.addEventListener('submit', function (e) {
   e.preventDefault();
   _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
   _elements.entryQuantity.value = '';
+});
+
+var items = [];
+var template;
+
+var structure = function structure(e) {
+  return "<p>Name: ".concat(e.name, "   -   Price: ").concat(e.price, "   -   Category: ").concat(e.category, "</p>");
+};
+
+var render = function render() {
+  _elements.itemsContainer.innerHTML = '';
+  template = '';
+  items.forEach(function (e) {
+    template += structure(e);
+    _elements.itemsContainer.innerHTML = template;
+  });
+};
+
+var resetValues = function resetValues() {
+  _elements.itemName.value = '';
+  _elements.itemPrice.value = '';
+  _elements.itemCategory.value = 'Option 1';
+};
+
+_elements.itemForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  if (_elements.itemName.value.trim() && _elements.itemPrice.value.trim()) {
+    items.push({
+      name: _elements.itemName.value,
+      price: _elements.itemPrice.value,
+      category: _elements.itemCategory.value
+    });
+    _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) - _elements.itemPrice.value;
+    render();
+    resetValues();
+  }
 });
 },{"./elements":"src/js/elements.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -165,7 +204,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64208" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52399" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

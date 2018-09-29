@@ -7,4 +7,6 @@ export const itemForm = document.getElementById('add-expenses');
 export const itemName = document.getElementById('item-name');
 export const itemPrice = document.getElementById('item-price');
 export const itemCategory = document.getElementById('item-category');
+export const itemsContainer = document.getElementById('items-container');
+
 
