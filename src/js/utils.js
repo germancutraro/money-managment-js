@@ -1,3 +1,4 @@
+import { getData, saveData } from './storage'; 
 import {
   incomeForm,
   totalMoney,
@@ -8,8 +9,9 @@ import {
   itemCategory,
   itemsContainer
 } from "./elements";
-export const items = [];
 
+export let items = (getData('items')) ? getData('items') : [];
+export let incomesList = (getData('incomes')) ? getData('incomes') : [];
 let template;
 
 const setCategoryIcon = category => {
@@ -25,7 +27,20 @@ const setCategoryIcon = category => {
   }
 };
 
-const structure = e => {
+export const totalPrices = () => {
+  const itemsPrices = items.reduce((prev, current) => {
+    return Number(prev) + Number(current.price);
+  }, 0); 
+  
+  const incomesPrices = incomesList.reduce((prev, current) => {
+    return Number(prev) + Number(current.income);
+  }, 0);
+    
+  return incomesPrices - itemsPrices;
+}
+
+
+export const structure = e => {
   return `<div class="item">
              <h2 class="item-price"> $${e.price} </h2> 
              <p class="item-title"> ${e.name}  </p>

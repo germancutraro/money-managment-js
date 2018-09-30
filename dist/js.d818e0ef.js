@@ -129,11 +129,16 @@ var itemCategory = document.getElementById('item-category');
 exports.itemCategory = itemCategory;
 var itemsContainer = document.getElementById('items-container');
 exports.itemsContainer = itemsContainer;
+<<<<<<< HEAD
 },{}],"src/js/utils.js":[function(require,module,exports) {
+=======
+},{}],"src/js/storage.js":[function(require,module,exports) {
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
+<<<<<<< HEAD
 });
 exports.UI = exports.resetValues = exports.render = exports.items = void 0;
 
@@ -159,9 +164,58 @@ var setCategoryIcon = function setCategoryIcon(category) {
   }
 };
 
+=======
+});
+exports.saveData = exports.getData = void 0;
+
+var getData = function getData(key) {
+  var data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
+};
+
+exports.getData = getData;
+
+var saveData = function saveData(key, value) {
+  return localStorage.setItem(key, JSON.stringify(value));
+};
+
+exports.saveData = saveData;
+},{}],"src/js/utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UI = exports.resetValues = exports.render = exports.structure = exports.totalPrices = exports.incomesList = exports.items = void 0;
+
+var _storage = require("./storage");
+
+var _elements = require("./elements");
+
+var items = (0, _storage.getData)('items') ? (0, _storage.getData)('items') : [];
+exports.items = items;
+var incomesList = (0, _storage.getData)('incomes') ? (0, _storage.getData)('incomes') : [];
+exports.incomesList = incomesList;
+var template;
+
+var totalPrices = function totalPrices() {
+  var itemsPrices = items.reduce(function (prev, current) {
+    return Number(prev) + Number(current.price);
+  }, 0);
+  var incomesPrices = incomesList.reduce(function (prev, current) {
+    return Number(prev) + Number(current.income);
+  }, 0);
+  return incomesPrices - itemsPrices;
+};
+
+exports.totalPrices = totalPrices;
+
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 var structure = function structure(e) {
   return "<div class=\"item\">\n             <h2 class=\"item-price\"> $".concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">  ").concat(setCategoryIcon(e.category), " </span>\n          </div>");
 };
+
+exports.structure = structure;
 
 var render = function render() {
   _elements.itemsContainer.innerHTML = "";
@@ -188,26 +242,55 @@ var UI = function UI() {
 };
 
 exports.UI = UI;
+<<<<<<< HEAD
 },{"./elements":"src/js/elements.js"}],"src/js/index.js":[function(require,module,exports) {
+=======
+},{"./storage":"src/js/storage.js","./elements":"src/js/elements.js"}],"src/js/index.js":[function(require,module,exports) {
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 "use strict";
 
 var _elements = require("./elements");
 
 var _utils = require("./utils");
 
+<<<<<<< HEAD
 // money entry
+=======
+var _storage = require("./storage");
+
+// Import Local Storage functions
+_elements.totalMoney.textContent = (0, _utils.totalPrices)(); // money entry
+
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 _elements.incomeForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (typeof Number(_elements.entryQuantity.value) === "number" && _elements.entryQuantity.value > 0) {
+<<<<<<< HEAD
     _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
     _elements.entryQuantity.value = "";
     (0, _utils.UI)();
+=======
+    (0, _utils.UI)();
+
+    _utils.incomesList.push({
+      income: _elements.entryQuantity.value
+    });
+
+    (0, _storage.saveData)('incomes', _utils.incomesList);
+    _elements.totalMoney.textContent = (0, _utils.totalPrices)();
+    _elements.entryQuantity.value = "";
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
   } else {
     alert("Enter a valid format!");
   }
 });
 
+<<<<<<< HEAD
+=======
+_utils.items ? (0, _utils.render)() : null;
+
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 _elements.itemForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -222,9 +305,16 @@ _elements.itemForm.addEventListener("submit", function (e) {
     (0, _utils.render)();
     (0, _utils.resetValues)();
     (0, _utils.UI)();
+<<<<<<< HEAD
   }
 });
 },{"./elements":"src/js/elements.js","./utils":"src/js/utils.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+=======
+    (0, _storage.saveData)('items', _utils.items);
+  }
+});
+},{"./elements":"src/js/elements.js","./utils":"src/js/utils.js","./storage":"src/js/storage.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+>>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
