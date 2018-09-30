@@ -170,28 +170,52 @@ var template;
 var setCategoryIcon = function setCategoryIcon(category) {
   switch (category) {
     case 'Home':
-      return "<i class='fas fa-home'></i>";
+      return {
+        icon: "<i class='fas fa-home'></i>",
+        color: "#1abc9c"
+      };
 
     case 'Car':
-      return "<i class='fas fa-car'></i>";
+      return {
+        icon: "<i class='fas fa-car'></i>",
+        color: "#3498db"
+      };
 
     case 'Shopping':
-      return "<i class='fas fa-weight-hanging'></i>";
+      return {
+        icon: "<i class='fas fa-weight-hanging'></i>",
+        color: "#9b59b6"
+      };
 
     case 'Entertainment':
-      return "<i class='fas fa-tv'></i>";
+      return {
+        icon: "<i class='fas fa-tv'></i>",
+        color: "#e74c3c"
+      };
 
     case 'Clothes':
-      return "<i class='fas fa-tshirt'></i>";
+      return {
+        icon: "<i class='fas fa-tshirt'></i>",
+        color: "#f1c40f"
+      };
 
     case 'Telephony':
-      return "<i class='fas fa-phone'></i>";
+      return {
+        icon: "<i class='fas fa-phone'></i>",
+        color: "#34495e"
+      };
 
     case 'Other':
-      return "<i class='fas fa-box'></i>";
+      return {
+        icon: "<i class='fas fa-box'></i>",
+        color: "#95a5a6"
+      };
 
     default:
-      return "<i class='fas fa-box'></i>";
+      return {
+        icon: "<i class='fas fa-box'></i>",
+        color: "#95a5a6"
+      };
   }
 };
 
@@ -208,7 +232,7 @@ var totalPrices = function totalPrices() {
 exports.totalPrices = totalPrices;
 
 var structure = function structure(e) {
-  return "<div class=\"item\">\n             <h2 class=\"item-price\"> $".concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">  ").concat(setCategoryIcon(e.category), " </span>\n          </div>");
+  return "<div class=\"item\" style=\"background: ".concat(setCategoryIcon(e.category).color, "\">\n             <h2 class=\"item-price\"> $").concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">  ").concat(setCategoryIcon(e.category).icon, " </span>\n          </div>");
 };
 
 exports.structure = structure;

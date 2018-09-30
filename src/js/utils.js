@@ -17,21 +17,45 @@ let template;
 const setCategoryIcon = category => {
   switch (category) {
     case 'Home': 
-      return "<i class='fas fa-home'></i>";
+      return {
+        icon: "<i class='fas fa-home'></i>",
+        color: "#1abc9c"
+      };
     case 'Car':
-      return "<i class='fas fa-car'></i>";
+      return {
+        icon: "<i class='fas fa-car'></i>",
+        color: "#3498db"
+      };
     case 'Shopping':  
-     return "<i class='fas fa-weight-hanging'></i>";
+     return {
+       icon: "<i class='fas fa-weight-hanging'></i>",
+       color: "#9b59b6"
+     };
     case 'Entertainment':  
-      return "<i class='fas fa-tv'></i>";
+      return {
+        icon: "<i class='fas fa-tv'></i>",
+        color: "#e74c3c"
+      };
     case 'Clothes':  
-      return "<i class='fas fa-tshirt'></i>";
+      return {
+        icon: "<i class='fas fa-tshirt'></i>",
+        color: "#f1c40f"
+      };
     case 'Telephony':  
-      return "<i class='fas fa-phone'></i>";
+      return {
+        icon: "<i class='fas fa-phone'></i>",
+        color: "#34495e"
+      };
     case 'Other':
-      return  "<i class='fas fa-box'></i>";
+      return  {
+        icon: "<i class='fas fa-box'></i>",
+        color: "#95a5a6"
+      };
     default:
-      return  "<i class='fas fa-box'></i>";
+      return  {
+        icon: "<i class='fas fa-box'></i>",
+        color: "#95a5a6"
+      };
   }
 };
 
@@ -49,10 +73,10 @@ export const totalPrices = () => {
 
 
 export const structure = e => {
-  return `<div class="item">
+  return `<div class="item" style="background: ${setCategoryIcon(e.category).color}">
              <h2 class="item-price"> $${e.price} </h2> 
              <p class="item-title"> ${e.name}  </p>
-             <span class="item-category">  ${setCategoryIcon(e.category)} </span>
+             <span class="item-category">  ${setCategoryIcon(e.category).icon} </span>
           </div>`;
 };
 
