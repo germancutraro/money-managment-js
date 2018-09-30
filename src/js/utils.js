@@ -1,6 +1,33 @@
-const items = [];
+import { getData, saveData } from './storage'; 
+import {
+  incomeForm,
+  totalMoney,
+  entryQuantity,
+  itemForm,
+  itemName,
+  itemPrice,
+  itemCategory,
+  itemsContainer
+} from "./elements";
 
+export let items = (getData('items')) ? getData('items') : [];
+export let incomesList = (getData('incomes')) ? getData('incomes') : [];
 let template;
+
+
+
+export const totalPrices = () => {
+  const itemsPrices = items.reduce((prev, current) => {
+    return Number(prev) + Number(current.price);
+  }, 0); 
+  
+  const incomesPrices = incomesList.reduce((prev, current) => {
+    return Number(prev) + Number(current.income);
+  }, 0);
+    
+  return incomesPrices - itemsPrices;
+}
+
 
 export const structure = e => {
   return `<div class="item">
