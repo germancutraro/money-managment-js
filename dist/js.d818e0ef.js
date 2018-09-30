@@ -129,29 +129,38 @@ var itemCategory = document.getElementById('item-category');
 exports.itemCategory = itemCategory;
 var itemsContainer = document.getElementById('items-container');
 exports.itemsContainer = itemsContainer;
-},{}],"src/js/index.js":[function(require,module,exports) {
+},{}],"src/js/utils.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UI = exports.resetValues = exports.render = exports.items = void 0;
 
 var _elements = require("./elements");
 
-// money entry
-_elements.incomeForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  if (typeof Number(_elements.entryQuantity.value) === "number" && _elements.entryQuantity.value > 0) {
-    _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
-    _elements.entryQuantity.value = "";
-    UI();
-  } else {
-    alert("Enter a valid format!");
-  }
-});
-
 var items = [];
+exports.items = items;
 var template;
 
+var setCategoryIcon = function setCategoryIcon(category) {
+  switch (category) {
+    case 'Home':
+      return "<i class='fas fa-home'></i>";
+
+    case 'Car':
+      return "<i class='fas fa-car'></i>";
+
+    case 'Shopping':
+      return "<i class='fas fa-weight-hanging'></i>";
+
+    case 'Entertainment':
+      return "<i class='fas fa-tv'></i>";
+  }
+};
+
 var structure = function structure(e) {
-  return "<div class=\"item\">\n             <h2 class=\"item-price\"> $".concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">").concat(e.category, "</span>\n          </div>");
+  return "<div class=\"item\">\n             <h2 class=\"item-price\"> $".concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">  ").concat(setCategoryIcon(e.category), " </span>\n          </div>");
 };
 
 var render = function render() {
@@ -163,33 +172,59 @@ var render = function render() {
   });
 };
 
+exports.render = render;
+
 var resetValues = function resetValues() {
   _elements.itemName.value = "";
   _elements.itemPrice.value = "";
   _elements.itemCategory.value = "Option 1";
 };
 
-_elements.itemForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  if (_elements.itemName.value.trim() && _elements.itemPrice.value.trim()) {
-    items.push({
-      name: _elements.itemName.value,
-      price: _elements.itemPrice.value,
-      category: _elements.itemCategory.value
-    });
-    _elements.totalMoney.textContent = _elements.totalMoney.textContent - _elements.itemPrice.value;
-    render();
-    resetValues();
-    UI();
-  }
-});
+exports.resetValues = resetValues;
 
 var UI = function UI() {
   // Total money color
   _elements.totalMoney.textContent < 0 ? _elements.totalMoney.classList.add("alert") : _elements.totalMoney.classList.remove("alert");
 };
-},{"./elements":"src/js/elements.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+exports.UI = UI;
+},{"./elements":"src/js/elements.js"}],"src/js/index.js":[function(require,module,exports) {
+"use strict";
+
+var _elements = require("./elements");
+
+var _utils = require("./utils");
+
+// money entry
+_elements.incomeForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  if (typeof Number(_elements.entryQuantity.value) === "number" && _elements.entryQuantity.value > 0) {
+    _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
+    _elements.entryQuantity.value = "";
+    (0, _utils.UI)();
+  } else {
+    alert("Enter a valid format!");
+  }
+});
+
+_elements.itemForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  if (_elements.itemName.value.trim() && _elements.itemPrice.value.trim()) {
+    _utils.items.push({
+      name: _elements.itemName.value,
+      price: _elements.itemPrice.value,
+      category: _elements.itemCategory.value
+    });
+
+    _elements.totalMoney.textContent = _elements.totalMoney.textContent - _elements.itemPrice.value;
+    (0, _utils.render)();
+    (0, _utils.resetValues)();
+    (0, _utils.UI)();
+  }
+});
+},{"./elements":"src/js/elements.js","./utils":"src/js/utils.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -216,7 +251,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52399" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51351" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

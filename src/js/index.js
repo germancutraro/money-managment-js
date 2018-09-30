@@ -8,7 +8,7 @@ import {
   itemCategory,
   itemsContainer
 } from "./elements";
-import { render, structure, UI, resetValues } from './utils';
+import { render, UI, resetValues,  items } from './utils';
 
 // money entry
 incomeForm.addEventListener("submit", e => {
@@ -22,8 +22,6 @@ incomeForm.addEventListener("submit", e => {
     alert("Enter a valid format!")
   }
 });
-
-
 
 itemForm.addEventListener("submit", e => {
   e.preventDefault();

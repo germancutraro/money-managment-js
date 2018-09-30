@@ -122,8 +122,8 @@ html, body {
 .alert {
   color: red;
 }
-.item-price { margin-bottom: 1rem; font-size: 1.6rem; }
-.item-title { margin-bottom: 1rem; font-size: 1.1rem;}
+.item-price { margin-bottom: 1rem; font-size: 3rem; }
+.item-title { margin-bottom: 1rem; font-size: 2rem;}
 .item-category { 
   margin-top: .5rem;
   border-top: 1px solid #fafafa;
