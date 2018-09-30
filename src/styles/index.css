@@ -33,11 +33,11 @@ html, body {
 
 .income-quantity {
   border: none;
+  font-family: inherit;
   height: 30px;
   background-color: inherit;
   text-align: center;
   border-bottom: 1px solid #eee;
-  margin-bottom: 1rem;
   outline: none;
   color: #fff;
   transition: .6s;
@@ -50,6 +50,7 @@ html, body {
 .add-incomes {
   display: flex;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .add-expenses input, .add-expenses select {
@@ -88,6 +89,7 @@ html, body {
   color: #fff;
   font-size: 17px;
   cursor: pointer;
+
 }
 
 
