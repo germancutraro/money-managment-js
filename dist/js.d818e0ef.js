@@ -137,8 +137,14 @@ var _elements = require("./elements");
 // money entry
 _elements.incomeForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
-  _elements.entryQuantity.value = "";
+
+  if (typeof Number(_elements.entryQuantity.value) === "number" && _elements.entryQuantity.value > 0) {
+    _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
+    _elements.entryQuantity.value = "";
+    UI();
+  } else {
+    alert("Enter a valid format!");
+  }
 });
 
 var items = [];
@@ -175,8 +181,14 @@ _elements.itemForm.addEventListener("submit", function (e) {
     _elements.totalMoney.textContent = _elements.totalMoney.textContent - _elements.itemPrice.value;
     render();
     resetValues();
+    UI();
   }
 });
+
+var UI = function UI() {
+  // Total money color
+  _elements.totalMoney.textContent < 0 ? _elements.totalMoney.classList.add("alert") : _elements.totalMoney.classList.remove("alert");
+};
 },{"./elements":"src/js/elements.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -10,12 +10,14 @@
 html, body {
   width: 100%;
   height: 100%;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Dosis', sans-serif;
   line-height: 1.5;
 }
 
 .main-header {
-  background-color: #1F0C30;
+  background: #41295a;  
+  background: -webkit-linear-gradient(to right, #2F0743, #41295a);  
+  background: linear-gradient(to right, #2F0743, #41295a); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,6 +40,25 @@ html, body {
   margin-bottom: 1rem;
   outline: none;
   color: #fff;
+  transition: .6s;
+}
+
+.income-quantity:focus {
+  border-bottom: 1px solid tomato;
+}
+.add-expenses input {
+  display: block;
+  margin: 0;
+  padding: 0.8rem;
+  color: inherit;
+  width: 100%;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: inherit;
+  line-height: var(--inputLineHeight);
+  border: none;
+  border-radius: 0.4rem;
+  transition: box-shadow var(--transitionDuration);
 }
 
 .income-quantity::placeholder {
@@ -54,6 +75,7 @@ html, body {
 
 .fa-plus-circle {
   color: #fff;
+  cursor: pointer;
 }
 
 .items-container {
@@ -63,3 +85,6 @@ html, body {
   flex-direction: column;
 }
 
+.alert {
+  color: red;
+}

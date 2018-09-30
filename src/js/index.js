@@ -12,10 +12,14 @@ import {
 // money entry
 incomeForm.addEventListener("submit", e => {
   e.preventDefault();
-
-  totalMoney.textContent =
-    Number(totalMoney.textContent) + Number(entryQuantity.value);
-  entryQuantity.value = "";
+  if (typeof Number(entryQuantity.value) === "number" && entryQuantity.value > 0) {
+    totalMoney.textContent =
+      Number(totalMoney.textContent) + Number(entryQuantity.value);
+    entryQuantity.value = "";
+    UI();
+  } else {
+    alert("Enter a valid format!")
+  }
 });
 
 const items = [];
@@ -54,5 +58,11 @@ itemForm.addEventListener("submit", e => {
     totalMoney.textContent = totalMoney.textContent - itemPrice.value;
     render();
     resetValues();
+    UI();
   }
 });
+
+const UI = () => {
+  // Total money color
+  (totalMoney.textContent < 0) ? totalMoney.classList.add("alert") : totalMoney.classList.remove("alert");
+}
