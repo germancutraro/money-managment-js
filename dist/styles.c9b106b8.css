@@ -46,23 +46,34 @@ html, body {
 .income-quantity:focus {
   border-bottom: 1px solid tomato;
 }
-.add-expenses input {
+
+.add-incomes {
+  display: flex;
+  align-items: center;
+}
+
+.add-expenses input, .add-expenses select {
   display: block;
   margin: 0;
   padding: 0.8rem;
-  color: inherit;
   width: 100%;
   font-family: inherit;
   font-size: 15px;
   font-weight: inherit;
-  line-height: var(--inputLineHeight);
+  outline: none;
   border: none;
   border-radius: 0.4rem;
-  transition: box-shadow var(--transitionDuration);
+  margin: 1rem;
+  min-width: 5px;
 }
 
 .income-quantity::placeholder {
   color: #fff;
+}
+
+.add-expenses {
+  display: flex;
+
 }
 
 .income-button {
@@ -75,18 +86,13 @@ html, body {
 
 .fa-plus-circle {
   color: #fff;
+  font-size: 17px;
   cursor: pointer;
 }
 
 
-
-
 /* Item */
 .items-container {
-  /* background-color: red;
-  color: #000;
-  display: flex;
-  flex-direction: column; */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
@@ -120,4 +126,19 @@ html, body {
   margin-top: .5rem;
   border-top: 1px solid #fafafa;
   padding-top: .5rem;
+}
+
+.add-expense-container {
+  background-color: #3C2054;
+  padding: 2rem;
+}
+
+select {
+  color: #757575;
+}
+
+.item-button {
+  color: #fff;
+  background-color: #CA924B;
+  cursor: pointer;
 }

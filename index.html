@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Money Managment - JavaScript</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Dosis:300,400,500" rel="stylesheet">
   <link rel="stylesheet" href="src/styles/index.css">
 </head>
+
 <body>
   <div id="app">
     <header class="main-header">
       <h1 id="my-money" class="my-money">0</h1>
       <form id="add-incomes" class="add-incomes">
-        
+
         <input type="text" id="income-quantity" class="income-quantity" placeholder="How much money?">
         <button type="submit" class="income-button"> <i class="fas fa-plus-circle" id='income-button'></i></button>
       </form>
     </header>
 
-    <form id="add-expenses" class="add-expenses">
-      <input type="text" placeholder="item" id="item-name">
-      <select id="item-category">
-        <option>Option 1</option>
-        <option>Option 2</option>
-        <option>Option 3</option>
-        <option>Option 4</option>
-        <option>Option 5</option>
-      </select>
-      <input type="number" placeholder="price" min="1" id="item-price">
-      <input type="submit" value="Add Expense" id="item-button">
-    </form>
+    <div class="add-expense-container">
+      <form id="add-expenses" class="add-expenses">
+        <input type="text" placeholder="Item name" id="item-name">
+        <select id="item-category">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+          <option>Option 4</option>
+          <option>Option 5</option>
+        </select>
+        <input type="number" placeholder="Price" min="1" id="item-price">
+        <input type="submit" value="Add Expense" id="item-button" class="item-button">
+      </form>
+    </div>
 
     <div class="items-container" id="items-container">
 
@@ -39,4 +44,5 @@
   </div>
   <script src="src/js/index.js"></script>
 </body>
+
 </html>
