@@ -24,6 +24,14 @@ const setCategoryIcon = category => {
      return "<i class='fas fa-weight-hanging'></i>";
     case 'Entertainment':  
       return "<i class='fas fa-tv'></i>";
+    case 'Clothes':  
+      return "<i class='fas fa-tshirt'></i>";
+    case 'Telephony':  
+      return "<i class='fas fa-phone'></i>";
+    case 'Other':
+      return  "<i class='fas fa-box'></i>";
+    default:
+      return  "<i class='fas fa-box'></i>";
   }
 };
 
@@ -60,7 +68,7 @@ export const render = () => {
 export const resetValues = () => {
   itemName.value = "";
   itemPrice.value = "";
-  itemCategory.value = "Option 1";
+  itemCategory.value = "Home";
 };
 
 

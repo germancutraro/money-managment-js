@@ -129,42 +129,11 @@ var itemCategory = document.getElementById('item-category');
 exports.itemCategory = itemCategory;
 var itemsContainer = document.getElementById('items-container');
 exports.itemsContainer = itemsContainer;
-<<<<<<< HEAD
-},{}],"src/js/utils.js":[function(require,module,exports) {
-=======
 },{}],"src/js/storage.js":[function(require,module,exports) {
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
-<<<<<<< HEAD
-});
-exports.UI = exports.resetValues = exports.render = exports.items = void 0;
-
-var _elements = require("./elements");
-
-var items = [];
-exports.items = items;
-var template;
-
-var setCategoryIcon = function setCategoryIcon(category) {
-  switch (category) {
-    case 'Home':
-      return "<i class='fas fa-home'></i>";
-
-    case 'Car':
-      return "<i class='fas fa-car'></i>";
-
-    case 'Shopping':
-      return "<i class='fas fa-weight-hanging'></i>";
-
-    case 'Entertainment':
-      return "<i class='fas fa-tv'></i>";
-  }
-};
-
-=======
 });
 exports.saveData = exports.getData = void 0;
 
@@ -198,6 +167,34 @@ var incomesList = (0, _storage.getData)('incomes') ? (0, _storage.getData)('inco
 exports.incomesList = incomesList;
 var template;
 
+var setCategoryIcon = function setCategoryIcon(category) {
+  switch (category) {
+    case 'Home':
+      return "<i class='fas fa-home'></i>";
+
+    case 'Car':
+      return "<i class='fas fa-car'></i>";
+
+    case 'Shopping':
+      return "<i class='fas fa-weight-hanging'></i>";
+
+    case 'Entertainment':
+      return "<i class='fas fa-tv'></i>";
+
+    case 'Clothes':
+      return "<i class='fas fa-tshirt'></i>";
+
+    case 'Telephony':
+      return "<i class='fas fa-phone'></i>";
+
+    case 'Other':
+      return "<i class='fas fa-box'></i>";
+
+    default:
+      return "<i class='fas fa-box'></i>";
+  }
+};
+
 var totalPrices = function totalPrices() {
   var itemsPrices = items.reduce(function (prev, current) {
     return Number(prev) + Number(current.price);
@@ -210,7 +207,6 @@ var totalPrices = function totalPrices() {
 
 exports.totalPrices = totalPrices;
 
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 var structure = function structure(e) {
   return "<div class=\"item\">\n             <h2 class=\"item-price\"> $".concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">  ").concat(setCategoryIcon(e.category), " </span>\n          </div>");
 };
@@ -231,7 +227,7 @@ exports.render = render;
 var resetValues = function resetValues() {
   _elements.itemName.value = "";
   _elements.itemPrice.value = "";
-  _elements.itemCategory.value = "Option 1";
+  _elements.itemCategory.value = "Home";
 };
 
 exports.resetValues = resetValues;
@@ -242,35 +238,22 @@ var UI = function UI() {
 };
 
 exports.UI = UI;
-<<<<<<< HEAD
-},{"./elements":"src/js/elements.js"}],"src/js/index.js":[function(require,module,exports) {
-=======
 },{"./storage":"src/js/storage.js","./elements":"src/js/elements.js"}],"src/js/index.js":[function(require,module,exports) {
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 "use strict";
 
 var _elements = require("./elements");
 
 var _utils = require("./utils");
 
-<<<<<<< HEAD
-// money entry
-=======
 var _storage = require("./storage");
 
 // Import Local Storage functions
 _elements.totalMoney.textContent = (0, _utils.totalPrices)(); // money entry
 
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 _elements.incomeForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (typeof Number(_elements.entryQuantity.value) === "number" && _elements.entryQuantity.value > 0) {
-<<<<<<< HEAD
-    _elements.totalMoney.textContent = Number(_elements.totalMoney.textContent) + Number(_elements.entryQuantity.value);
-    _elements.entryQuantity.value = "";
-    (0, _utils.UI)();
-=======
     (0, _utils.UI)();
 
     _utils.incomesList.push({
@@ -280,17 +263,13 @@ _elements.incomeForm.addEventListener("submit", function (e) {
     (0, _storage.saveData)('incomes', _utils.incomesList);
     _elements.totalMoney.textContent = (0, _utils.totalPrices)();
     _elements.entryQuantity.value = "";
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
   } else {
     alert("Enter a valid format!");
   }
 });
 
-<<<<<<< HEAD
-=======
 _utils.items ? (0, _utils.render)() : null;
 
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 _elements.itemForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -305,16 +284,10 @@ _elements.itemForm.addEventListener("submit", function (e) {
     (0, _utils.render)();
     (0, _utils.resetValues)();
     (0, _utils.UI)();
-<<<<<<< HEAD
-  }
-});
-},{"./elements":"src/js/elements.js","./utils":"src/js/utils.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
-=======
     (0, _storage.saveData)('items', _utils.items);
   }
 });
 },{"./elements":"src/js/elements.js","./utils":"src/js/utils.js","./storage":"src/js/storage.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
->>>>>>> 1092ae4e3969ab4521d22cd5c29471181bd207c5
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -341,7 +314,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51351" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53344" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
