@@ -151,7 +151,7 @@ var items = [];
 var template;
 
 var structure = function structure(e) {
-  return "<p>Name: ".concat(e.name, "   -   Price: ").concat(e.price, "   -   Category: ").concat(e.category, "</p>");
+  return "<div class=\"item\">\n             <h2 class=\"item-price\"> $".concat(e.price, " </h2> \n             <p class=\"item-title\"> ").concat(e.name, "  </p>\n             <span class=\"item-category\">").concat(e.category, "</span>\n          </div>");
 };
 
 var render = function render() {
@@ -216,7 +216,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52976" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52399" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

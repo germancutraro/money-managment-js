@@ -27,9 +27,11 @@ const items = [];
 let template;
 
 const structure = e => {
-  return `<p>Name: ${e.name}   -   Price: ${e.price}   -   Category: ${
-    e.category
-  }</p>`;
+  return `<div class="item">
+             <h2 class="item-price"> $${e.price} </h2> 
+             <p class="item-title"> ${e.name}  </p>
+             <span class="item-category">${e.category}</span>
+          </div>`;
 };
 
 const render = () => {
