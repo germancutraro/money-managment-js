@@ -5,16 +5,17 @@ import {
   itemForm,
   itemName,
   itemPrice,
-  itemCategory,
-  itemsContainer
+  itemCategory
 } from "./elements";
 
-import { render, structure, UI, resetValues, items, incomesList, totalPrices } from './utils';
+
+import { render, UI, resetValues, items, incomesList, totalPrices } from './utils';
 
 // Import Local Storage functions
-import { getData, saveData } from './storage';
+import { saveData } from './storage';
 
 totalMoney.textContent = totalPrices();
+UI();
 // money entry
 incomeForm.addEventListener("submit", e => {
   e.preventDefault();

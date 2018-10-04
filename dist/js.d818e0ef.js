@@ -272,7 +272,8 @@ var _utils = require("./utils");
 var _storage = require("./storage");
 
 // Import Local Storage functions
-_elements.totalMoney.textContent = (0, _utils.totalPrices)(); // money entry
+_elements.totalMoney.textContent = (0, _utils.totalPrices)();
+(0, _utils.UI)(); // money entry
 
 _elements.incomeForm.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -338,7 +339,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49752" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

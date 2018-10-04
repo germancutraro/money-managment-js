@@ -1,9 +1,6 @@
-import { getData, saveData } from './storage'; 
+import { getData } from './storage'; 
 import {
-  incomeForm,
   totalMoney,
-  entryQuantity,
-  itemForm,
   itemName,
   itemPrice,
   itemCategory,

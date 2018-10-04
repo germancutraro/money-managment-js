@@ -4,6 +4,4 @@ export const getData = key => {
     return data ? JSON.parse(data) : null;
 }
 
-export const saveData = (key, value) => {
-    return localStorage.setItem(key, JSON.stringify(value));
-}
+export const saveData = (key, value) => localStorage.setItem(key, JSON.stringify(value));
