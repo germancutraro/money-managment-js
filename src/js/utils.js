@@ -11,7 +11,7 @@ export let items = (getData('items')) ? getData('items') : [];
 export let incomesList = (getData('incomes')) ? getData('incomes') : [];
 let template;
 
-const setCategoryIcon = category => {
+export const setCategoryIcon = category => {
   switch (category) {
     case 'Home': 
       return {

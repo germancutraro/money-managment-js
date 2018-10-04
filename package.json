@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "test": ""
+    "test": "jest"
   },
   "author": "germancutraro",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "jest": "^23.6.0",
     "parcel-bundler": "^1.10.0"
   }
 }
