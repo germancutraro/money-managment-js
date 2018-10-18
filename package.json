@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "author": "germancutraro",
   "license": "ISC",

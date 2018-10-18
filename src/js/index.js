@@ -8,32 +8,39 @@ import {
   itemCategory
 } from "./elements";
 
-
-import { render, UI, resetValues, items, incomesList, totalPrices } from './utils';
+import {
+  render,
+  UI,
+  resetValues,
+  items,
+  incomesList,
+  totalPrices
+} from "./utils";
 
 // Import Local Storage functions
-import { saveData } from './storage';
+import { saveData } from "./storage";
 
-totalMoney.textContent = totalPrices();
+totalMoney.textContent = totalPrices(items, incomesList);
 UI();
 // money entry
 incomeForm.addEventListener("submit", e => {
   e.preventDefault();
-  if (typeof Number(entryQuantity.value) === "number" && entryQuantity.value > 0) {
+  if (
+    typeof Number(entryQuantity.value) === "number" &&
+    entryQuantity.value > 0
+  ) {
+    incomesList.push({ income: entryQuantity.value });
+    saveData("incomes", incomesList);
+    totalMoney.textContent = totalPrices(items, incomesList);
     
     UI();
-    incomesList.push({income: entryQuantity.value});
-    saveData('incomes', incomesList);
-    totalMoney.textContent = totalPrices();
-
     entryQuantity.value = "";
   } else {
-    alert("Enter a valid format!")
+    alert("Enter a valid format!");
   }
 });
 
-
-(items) ? render() : null;
+items ? render() : null;
 
 itemForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -47,9 +54,6 @@ itemForm.addEventListener("submit", e => {
     render();
     resetValues();
     UI();
-  saveData('items', items);
-
+    saveData("items", items);
   }
 });
-
-

@@ -1,4 +1,4 @@
-import { getData } from './storage'; 
+import { getData } from "./storage";
 import {
   totalMoney,
   itemName,
@@ -7,73 +7,76 @@ import {
   itemsContainer
 } from "./elements";
 
-export let items = (getData('items')) ? getData('items') : [];
-export let incomesList = (getData('incomes')) ? getData('incomes') : [];
+export let items = getData("items") ? getData("items") : [];
+export let incomesList = getData("incomes") ? getData("incomes") : [];
 let template;
 
 export const setCategoryIcon = category => {
   switch (category) {
-    case 'Home': 
+    case "Home":
       return {
         icon: "<i class='fas fa-home'></i>",
         color: "#1abc9c"
       };
-    case 'Car':
+    case "Car":
       return {
         icon: "<i class='fas fa-car'></i>",
         color: "#3498db"
       };
-    case 'Shopping':  
-     return {
-       icon: "<i class='fas fa-weight-hanging'></i>",
-       color: "#9b59b6"
-     };
-    case 'Entertainment':  
+    case "Shopping":
+      return {
+        icon: "<i class='fas fa-weight-hanging'></i>",
+        color: "#9b59b6"
+      };
+    case "Entertainment":
       return {
         icon: "<i class='fas fa-tv'></i>",
         color: "#e74c3c"
       };
-    case 'Clothes':  
+    case "Clothes":
       return {
         icon: "<i class='fas fa-tshirt'></i>",
         color: "#f1c40f"
       };
-    case 'Telephony':  
+    case "Telephony":
       return {
         icon: "<i class='fas fa-phone'></i>",
         color: "#34495e"
       };
-    case 'Other':
-      return  {
+    case "Other":
+      return {
         icon: "<i class='fas fa-box'></i>",
         color: "#95a5a6"
       };
     default:
-      return  {
+      return {
         icon: "<i class='fas fa-box'></i>",
         color: "#95a5a6"
       };
   }
 };
 
-export const totalPrices = () => {
+export const totalPrices = (items, incomesList) => {
   const itemsPrices = items.reduce((prev, current) => {
     return Number(prev) + Number(current.price);
-  }, 0); 
-  
+  }, 0);
+
   const incomesPrices = incomesList.reduce((prev, current) => {
     return Number(prev) + Number(current.income);
   }, 0);
-    
-  return incomesPrices - itemsPrices;
-}
 
+  return incomesPrices - itemsPrices;
+};
 
 export const structure = e => {
-  return `<div class="item" style="background: ${setCategoryIcon(e.category).color}">
+  return `<div class="item" style="background: ${
+    setCategoryIcon(e.category).color
+  }">
              <h2 class="item-price"> $${e.price} </h2> 
              <p class="item-title"> ${e.name}  </p>
-             <span class="item-category">  ${setCategoryIcon(e.category).icon} </span>
+             <span class="item-category">  ${
+               setCategoryIcon(e.category).icon
+             } </span>
           </div>`;
 };
 
@@ -92,10 +95,9 @@ export const resetValues = () => {
   itemCategory.value = "Home";
 };
 
-
-
 export const UI = () => {
   // Total money color
-  (totalMoney.textContent < 0) ? totalMoney.classList.add("alert") : totalMoney.classList.remove("alert");
-  
-}
+  totalMoney.textContent < 0
+    ? totalMoney.classList.add("alert")
+    : totalMoney.classList.remove("alert");
+};

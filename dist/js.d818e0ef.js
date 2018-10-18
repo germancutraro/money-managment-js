@@ -155,57 +155,57 @@ exports.saveData = saveData;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UI = exports.resetValues = exports.render = exports.structure = exports.totalPrices = exports.incomesList = exports.items = void 0;
+exports.UI = exports.resetValues = exports.render = exports.structure = exports.totalPrices = exports.setCategoryIcon = exports.incomesList = exports.items = void 0;
 
 var _storage = require("./storage");
 
 var _elements = require("./elements");
 
-var items = (0, _storage.getData)('items') ? (0, _storage.getData)('items') : [];
+var items = (0, _storage.getData)("items") ? (0, _storage.getData)("items") : [];
 exports.items = items;
-var incomesList = (0, _storage.getData)('incomes') ? (0, _storage.getData)('incomes') : [];
+var incomesList = (0, _storage.getData)("incomes") ? (0, _storage.getData)("incomes") : [];
 exports.incomesList = incomesList;
 var template;
 
 var setCategoryIcon = function setCategoryIcon(category) {
   switch (category) {
-    case 'Home':
+    case "Home":
       return {
         icon: "<i class='fas fa-home'></i>",
         color: "#1abc9c"
       };
 
-    case 'Car':
+    case "Car":
       return {
         icon: "<i class='fas fa-car'></i>",
         color: "#3498db"
       };
 
-    case 'Shopping':
+    case "Shopping":
       return {
         icon: "<i class='fas fa-weight-hanging'></i>",
         color: "#9b59b6"
       };
 
-    case 'Entertainment':
+    case "Entertainment":
       return {
         icon: "<i class='fas fa-tv'></i>",
         color: "#e74c3c"
       };
 
-    case 'Clothes':
+    case "Clothes":
       return {
         icon: "<i class='fas fa-tshirt'></i>",
         color: "#f1c40f"
       };
 
-    case 'Telephony':
+    case "Telephony":
       return {
         icon: "<i class='fas fa-phone'></i>",
         color: "#34495e"
       };
 
-    case 'Other':
+    case "Other":
       return {
         icon: "<i class='fas fa-box'></i>",
         color: "#95a5a6"
@@ -219,7 +219,9 @@ var setCategoryIcon = function setCategoryIcon(category) {
   }
 };
 
-var totalPrices = function totalPrices() {
+exports.setCategoryIcon = setCategoryIcon;
+
+var totalPrices = function totalPrices(items, incomesList) {
   var itemsPrices = items.reduce(function (prev, current) {
     return Number(prev) + Number(current.price);
   }, 0);
@@ -272,21 +274,20 @@ var _utils = require("./utils");
 var _storage = require("./storage");
 
 // Import Local Storage functions
-_elements.totalMoney.textContent = (0, _utils.totalPrices)();
+_elements.totalMoney.textContent = (0, _utils.totalPrices)(_utils.items, _utils.incomesList);
 (0, _utils.UI)(); // money entry
 
 _elements.incomeForm.addEventListener("submit", function (e) {
   e.preventDefault();
 
   if (typeof Number(_elements.entryQuantity.value) === "number" && _elements.entryQuantity.value > 0) {
-    (0, _utils.UI)();
-
     _utils.incomesList.push({
       income: _elements.entryQuantity.value
     });
 
-    (0, _storage.saveData)('incomes', _utils.incomesList);
-    _elements.totalMoney.textContent = (0, _utils.totalPrices)();
+    (0, _storage.saveData)("incomes", _utils.incomesList);
+    _elements.totalMoney.textContent = (0, _utils.totalPrices)(_utils.items, _utils.incomesList);
+    (0, _utils.UI)();
     _elements.entryQuantity.value = "";
   } else {
     alert("Enter a valid format!");
@@ -309,7 +310,7 @@ _elements.itemForm.addEventListener("submit", function (e) {
     (0, _utils.render)();
     (0, _utils.resetValues)();
     (0, _utils.UI)();
-    (0, _storage.saveData)('items', _utils.items);
+    (0, _storage.saveData)("items", _utils.items);
   }
 });
 },{"./elements":"src/js/elements.js","./utils":"src/js/utils.js","./storage":"src/js/storage.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -339,7 +340,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49752" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50037" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
